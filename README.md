@@ -6,14 +6,14 @@ This file contains SQL queries and their explanations in a simple, readable form
 
 ## 1️⃣ Retrieve the total number of orders placed
 
-```sql
-SELECT COUNT(order_id) AS total_orders
-FROM orders;
-
-Calculate the total revenue generated from pizza sales
-SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_revenue
-FROM pizzas p
-JOIN order_details o ON p.pizza_id = o.pizza_id;
+    ```sql
+    SELECT COUNT(order_id) AS total_orders
+    FROM orders;
+    
+    Calculate the total revenue generated from pizza sales
+    SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_revenue
+    FROM pizzas p
+    JOIN order_details o ON p.pizza_id = o.pizza_id;```
 
 
 Joins pizzas with order_details.
