@@ -6,14 +6,14 @@ This file contains SQL queries and their explanations in a simple, readable form
 
 ## 1️⃣ Retrieve the total number of orders placed
 
-    ```sql
+    sql
     SELECT COUNT(order_id) AS total_orders
-    FROM orders;```
+    FROM orders;
     
 ## Calculate the total revenue generated from pizza sales
-    ```SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_revenue
+    SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_revenue
     FROM pizzas p
-    JOIN order_details o ON p.pizza_id = o.pizza_id;```
+    JOIN order_details o ON p.pizza_id = o.pizza_id;
 
 
 ## Joins pizzas with order_details.
@@ -23,14 +23,14 @@ Multiplies quantity × price for each pizza.
 Sums the result and rounds to 2 decimal places.
 
 ## 3️⃣ Identify the highest-priced pizza
-    ```WITH cte AS (
+    WITH cte AS (
         SELECT t.name, p.price 
         FROM pizzas p
         JOIN pizza_types t ON p.pizza_type_id = t.pizza_type_id
     )
     SELECT name, MAX(price) OVER() AS max_price
     FROM cte
-    LIMIT 1;```
+    LIMIT 1;
 
 
 Finds pizza names with their prices.
